@@ -3,14 +3,13 @@ package org.sinmetal.translate.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.sinmetal.translate.meta.Slim3ModelMeta;
+import org.sinmetal.translate.model.Slim3Model;
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 import org.slim3.datastore.Datastore;
 
-import org.sinmetal.translate.meta.Slim3ModelMeta;
-import org.sinmetal.translate.model.Slim3Model;
-
-public class IndexController extends Controller {
+public class HelloController extends Controller {
 
 	@Override
 	protected Navigation run() throws Exception {

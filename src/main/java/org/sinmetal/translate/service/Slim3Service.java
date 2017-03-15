@@ -2,9 +2,9 @@ package org.sinmetal.translate.service;
 
 import java.util.List;
 
-import org.slim3.datastore.Datastore;
-import org.sinmetal.translate.model.Slim3Model;
 import org.sinmetal.translate.meta.Slim3ModelMeta;
+import org.sinmetal.translate.model.Slim3Model;
+import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
 
