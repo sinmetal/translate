@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="ja">
+  <meta charset="UTF-8">
+  <title>Translate Tool</title>
+</head>
+<body>
+<h1>Hello Translate</h1>
+<select id="sourceLanguage">
+  <option value="ja">日本語</option>
+  <option value="en" selected="selected">英語</option>
+</select>
+<textarea id="sourceMessage"></textarea>
+<select id="targetLanguage">
+  <option value="ja" selected="selected">日本語</option>
+  <option value="en">英語</option>
+</select>
+<textarea id="targetMessage"></textarea>
+<button onclick="window.translate.submit()">翻訳</button>
+<div id="errorMessage">Error Message</div>
+<script src="/js/main.js"></script>
+</body>
+</html>
