@@ -1,23 +1,75 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
-<head lang="ja">
-  <meta charset="UTF-8">
-  <title>Translate Tool</title>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Hello Translate</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/override-bootstrap.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1>Hello Translate</h1>
-<select id="sourceLanguage">
-  <option value="ja">日本語</option>
-  <option value="en" selected="selected">英語</option>
-</select>
-<textarea id="sourceMessage"></textarea>
-<select id="targetLanguage">
-  <option value="ja" selected="selected">日本語</option>
-  <option value="en">英語</option>
-</select>
-<textarea id="targetMessage"></textarea>
-<button onclick="window.translate.submit()">翻訳</button>
-<div id="errorMessage">Error Message</div>
+
+<div class="container wrapper">
+  <div class="header">
+    <h1>Hello Translate</h1>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div id="errorContainer" class="alert alert-danger alert-dismissible hide" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong><span id="errorMessage"></span>
+      </div>
+
+    </div>
+    <div class="col-xs-6">
+      <div class="btn-toolbar" role="toolbar" aria-label="...">
+        <div class="col-xs-4">
+			<select id="sourceLanguage" class="form-control">
+			  <option value="en" selected="selected">英語</option>
+		      <option value="ja">日本語</option>
+			</select>
+		</div>
+      </div>
+      <div>
+        <textarea class="form-control" placeholder="Please edit..." id="sourceMessage"></textarea>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="btn-toolbar" role="toolbar" aria-label="...">
+	    <div class="col-xs-4">
+			<select id="targetLanguage" class="form-control">
+			  <option value="en">英語</option>
+		      <option value="ja" selected="selected">日本語</option>
+			</select>
+		</div>
+
+        <div class="btn-group btn-group-lg" role="group" aria-label="...">
+          <button type="button" class="btn btn-primary" onclick="window.translate.submit()">翻訳</button>
+        </div>
+      </div>
+      <div>
+        <div class="translation-block" id="targetMessage">ここに翻訳した言語が入ります。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/js/bootstrap.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

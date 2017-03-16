@@ -14,15 +14,15 @@ var translate;
                 if (req.readyState === 4) {
                     if (req.status === 200) {
                       var j = JSON.parse(req.responseText);
-                      document.getElementById("targetMessage").value = j.translatedText;
+                      document.getElementById("targetMessage").innerText = j.translatedText;
                     } else if (req.status === 500) {
                         retries--;
                         if(retries > 0) {
                             console.log("Retrying...");
                             setTimeout(function(){post()}, 100);
                         } else {
-                            console.error("post error");
                             document.getElementById("errorMessage").innerText = "失敗しました。もう一度実行してください。"
+                            document.getElementById("errorContainer").classList.remove("hide");
                         }
                     }
                 }
@@ -39,7 +39,7 @@ var translate;
         post();
 
     };
-
+    
     translate.submit = function() {
         var sle = document.getElementById("sourceLanguage");
         var sourceLanguage = sle.options[sle.selectedIndex].value;
@@ -56,8 +56,9 @@ var translate;
             "message" : sourceMessage,
         };
 
-        document.getElementById("targetMessage").value = "";
+        document.getElementById("targetMessage").innerText = "";
         document.getElementById("errorMessage").innerText = "";
+        document.getElementById("errorContainer").classList.add("hide");
         
         translate.send("/api/v1/translate", data);
     };
